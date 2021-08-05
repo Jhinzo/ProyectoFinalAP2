@@ -1,7 +1,7 @@
 ﻿@page "/Tabla-de-Jugadores"
 
 @using System.Timers
-@using BLL
+@using ProyectoFinalAP2.BLL
 @inject IToastService Toast
 
 <style>
@@ -70,7 +70,7 @@
                         int i = 0;
                     }
 
-                    @foreach (Models.MatchGame item in jugadas)
+                    @foreach (ProyectoFinalAP2.Models.MatchGame item in jugadas)
                     {
                         i++;
                         <tr>
@@ -91,14 +91,14 @@
     int EstiloIndexSelect = 1;
     int DificultadIndexSelect = 1;
     int cantidadEmoji;
-    private Models.MatchGame game = new Models.MatchGame();
+    private ProyectoFinalAP2.Models.MatchGame game = new ProyectoFinalAP2.Models.MatchGame();
     string CriterioTextBox = "";
     string JugadorTextBox = "";
 
     int IndexConsulta = -1;
-    public List<MatchGame> Filtro { get; set; }
+    public List<ProyectoFinalAP2.Models.MatchGame> Filtro { get; set; }
 
-    List<Models.MatchGame> jugadas = new List<Models.MatchGame>();
+    List<ProyectoFinalAP2.Models.MatchGame> jugadas = new List<ProyectoFinalAP2.Models.MatchGame>();
     List<string> mezclarEmoji = new List<string>();
     int parejasEncontradas = 0;
     Timer timer;
@@ -111,7 +111,7 @@
     protected override void OnInitialized()
     {
         timer = new Timer(100);
-        jugadas = new List<Models.MatchGame>();
+        jugadas = new List<ProyectoFinalAP2.Models.MatchGame>();
 
         CantidadEmoji();
         CargarConsulta();
@@ -137,7 +137,7 @@
         jugadas = jugadas.OrderBy(j => j.Tiempo).ToList();
     }
 
-   
+
     private void CantidadEmoji()
     {
         if (DificultadIndexSelect == 1)

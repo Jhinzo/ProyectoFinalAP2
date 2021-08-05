@@ -1,7 +1,8 @@
 ﻿@page "/MatchGame"
 
 @using System.Timers
-@using BLL
+@using ProyectoFinalAP2
+@using ProyectoFinalAP2.BLL
 @inject IToastService Toast
 
 <style>
@@ -116,14 +117,14 @@
     int EstiloIndexSelect = 1;
     int DificultadIndexSelect = 1;
     int cantidadEmoji;
-    private Models.MatchGame game = new Models.MatchGame();
+    private ProyectoFinalAP2.Models.MatchGame game = new ProyectoFinalAP2.Models.MatchGame();
     string CriterioTextBox = "";
     string JugadorTextBox = "";
 
     int IndexConsulta = -1;
-    public List<MatchGame> Filtro { get; set; }
+    public List<ProyectoFinalAP2.Models.MatchGame> Filtro { get; set; }
 
-    List<Models.MatchGame> jugadas = new List<Models.MatchGame>();
+    List<ProyectoFinalAP2.Models.MatchGame> jugadas = new List<ProyectoFinalAP2.Models.MatchGame>();
     List<string> mezclarEmoji = new List<string>();
     int parejasEncontradas = 0;
     Timer timer;
@@ -137,7 +138,7 @@
     {
         timer = new Timer(100);
         timer.Elapsed += Temporizador;
-        jugadas = new List<Models.MatchGame>();
+        jugadas = new List<ProyectoFinalAP2.Models.MatchGame>();
 
         CantidadEmoji();
         InicioJuego();
@@ -226,7 +227,7 @@
             {
                 timer.Stop();
 
-                //Models.MatchGame game = new Models.MatchGame();
+                //ProyectoFinalAP2.Models.MatchGame game = new ProyectoFinalAP2.Models.MatchGame();
                 //game.Jugador = JugadorTextBox;
                 //game.Dificultad = DificultadIndexSelect.ToString();
                 //game.TimeDisplay = timeDisplay;
@@ -249,7 +250,7 @@
 
     private void RegistrarResultadosButtonClick()
     {
-        Models.MatchGame game = new Models.MatchGame();
+        ProyectoFinalAP2.Models.MatchGame game = new ProyectoFinalAP2.Models.MatchGame();
 
         if (JugadorTextBox == string.Empty)
         {
